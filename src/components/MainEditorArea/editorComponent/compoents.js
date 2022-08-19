@@ -10,6 +10,9 @@ import CRect from './CRect.vue';
 import CSankeyChart from './CSanKeyChart.vue';
 import CRadarChart from './CRadarChart.vue';
 import CTextList from './CTextList.vue';
+import CVideo from './CVideo.vue';
+
+  // 组件js暴露
 
 export default {
   CTable,
@@ -24,4 +27,5 @@ export default {
   CSankey: CSankeyChart,
   CRadar: CRadarChart,
   CCarousel: CTextList,
+  CVideo,
 };

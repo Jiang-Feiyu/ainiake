@@ -1,3 +1,4 @@
+<!-- 前进后退按键 -->
 <template>
     <div class="editor">
       <div class="editor-header">
@@ -7,7 +8,7 @@
         >
           <icon-font
             size="18"
-            title="撤回操作"
+            title="后退操作"
             code="&#xe617;"
             :class="`${!canUndo ? 'disable-btn' : ''}`"
             />

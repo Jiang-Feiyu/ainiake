@@ -1,12 +1,13 @@
+<!-- 左侧展示界面 -->
 <template>
     <div class="components-box">
       <div class="header-logo">
         CEditor
       </div>
       <div class="container">
-        <div class="container-header">组件库</div>
+        <!-- <div class="container-header">组件库</div> -->
             <el-collapse>
-                <el-collapse-item title="基础组件" name="1">
+                <el-collapse-item title="组件" name="1">
                   <div
                     v-for="item in cList.filter(v => v.type === 'normal')"
                     :key="item.name"
@@ -30,7 +31,7 @@
                     </div>
                   </div>
                 </el-collapse-item>
-                <el-collapse-item title="数据展示组件" name="2">
+                <!-- <el-collapse-item title="数据展示组件" name="2">
                   <div
                     v-for="item in cList.filter(v => v.type === 'chart')"
                     :key="item.name"
@@ -53,8 +54,8 @@
                       {{ item.label }}
                     </div>
                   </div>
-                </el-collapse-item>
-                <el-collapse-item title="特色组件" name="3">
+                </el-collapse-item> -->
+                <!-- <el-collapse-item title="特色组件" name="3">
                   <div
                     v-for="item in cList.filter(v => v.type === 'custom')"
                     :key="item.name"
@@ -77,7 +78,7 @@
                       {{ item.label }}
                     </div>
                   </div>
-                </el-collapse-item>
+                </el-collapse-item> -->
             </el-collapse>
       </div>
     </div>
@@ -94,74 +95,86 @@ export default {
           name: 'text',
           label: '文本框',
           type: 'normal',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/%E6%96%87%E6%9C%AC.png',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/05/05/e7aedc633f05256d8de1bc9829d278d2.png',
         },
         {
           name: 'table',
           label: '表格',
           type: 'normal',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor%2F%E8%A1%A8%E6%A0%BC.png',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/04/01/3b28c2d6b57b746d62d6ace1fc5534cb.png',
         },
         {
           name: 'image',
           label: '图片',
           type: 'normal',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/%E5%9B%BE%E7%89%87.png',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/07/03/e35782f317fbcbaa5479a455cde3b040.png',
         },
         {
           name: 'rect',
-          label: '矩形',
+          label: '按钮',
           type: 'normal',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/202205161702959.png',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/04/13/0571e1e656651c968eed1984c9acdedc.png',
+        },
+        {
+          name: 'url',
+          label: '链接',
+          type: 'normal',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/06/28/a098ee02975346f69c617c2dc55b901a.png',
+        },
+        {
+          name: 'video',
+          label: '视频',
+          type: 'normal',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2022/08/09/01f7f7457b656a8f4eac8e7f4164d76d.png',
         },
         {
           name: 'bar',
           label: '柱状图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/bar-simple.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:JNm6-OFTeGYyDoOMdjAeRSAo_30=',
+          type: 'normal',
+          imgSrc: 'https://static.thenounproject.com/png/23114-200.png',
         },
         {
           name: 'line',
           label: '折线图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/line-simple.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:OqfljJSOl7FGDsvPFvdIh9eGEHA=',
+          type: 'normal',
+          imgSrc: 'https://www.logosc.cn/oss/icons/2021/12/23/db9175ee65b583e686e95a6577bd0f77.png',
         },
-        {
-          name: 'pie',
-          label: '饼图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/pie-simple.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:Ye_nMzrKbiXumZlZjkUBRQHTdXQ=',
-        },
-        {
-          name: 'area',
-          label: '面积图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/area-basic.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:NTp4Bm2jA4-3duGQSeWZkBf7p7k=',
-        },
-        {
-          name: 'funnel',
-          label: '漏斗图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/funnel.webp',
-        },
-        {
-          name: 'radar',
-          label: '雷达图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/202205172113610.png',
-        },
-        {
-          name: 'sankey',
-          label: '桑基图',
-          type: 'chart',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/202205172111857.png',
-        },
-        {
-          name: 'carousel',
-          label: '文本轮播滚动',
-          type: 'custom',
-          imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/%E6%96%87%E6%9C%AC.png',
-        },
+        // {
+        //   name: 'pie',
+        //   label: '饼图',
+        //   type: 'chart',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/pie-simple.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:Ye_nMzrKbiXumZlZjkUBRQHTdXQ=',
+        // },
+        // {
+        //   name: 'area',
+        //   label: '面积图',
+        //   type: 'chart',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/area-basic.webp?e=1651381479&token=9rPdsMX3D4ANa5yaN6J-PsinXDmd6xMP185zAzTo:NTp4Bm2jA4-3duGQSeWZkBf7p7k=',
+        // },
+        // {
+        //   name: 'funnel',
+        //   label: '漏斗图',
+        //   type: 'chart',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/funnel.webp',
+        // },
+        // {
+        //   name: 'radar',
+        //   label: '雷达图',
+        //   type: 'chart',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/202205172113610.png',
+        // },
+        // {
+        //   name: 'sankey',
+        //   label: '桑基图',
+        //   type: 'chart',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/202205172111857.png',
+        // },
+        // {
+        //   name: 'carousel',
+        //   label: '文本轮播滚动',
+        //   type: 'custom',
+        //   imgSrc: 'http://rb6rk8283.hd-bkt.clouddn.com/editor/%E6%96%87%E6%9C%AC.png',
+        // },
       ],
     };
   },

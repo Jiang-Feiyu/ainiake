@@ -25,9 +25,19 @@ export const RECT_DATA = {
     bottom: 0,
   },
 };
+// 视频数据
+export const VIDEO_DATA = {
+  videoUrl: 'https://kvideo01.youju.sohu.com/f5ac14c3-4bc3-406f-87af-efacf30a4af32_0_0.mp4',
+  fourBorderRadius: {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+};
 
 export const IMAGE_DATA = {
-  imgUrl: 'https://github.com/cadben/images_store/blob/master/img/4YT4k5.png?raw=true',
+  imgUrl: 'https://pic1.zhimg.com/v2-df081aadcb6c5b35b7ae28253875d5a8_b.png',
   showType: 'full',
   fourBorderRadius: {
     left: 0,

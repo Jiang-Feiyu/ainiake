@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-
+// 表格样式和设置
 export default {
   props: {
     data: {

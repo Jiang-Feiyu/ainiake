@@ -1,5 +1,6 @@
 import {
   TEXT_DATA,
+  VIDEO_DATA,
   IMAGE_DATA,
   BAR_CHART_DATA,
   TABLE_DATA,
@@ -13,6 +14,7 @@ import {
   CAROUSEL_HORIZON_DATA,
 } from './component.data';
 import {
+  VIDEO_STYLE,
   IMAGE_STYLE,
   TEXT_STYLE,
   BAR_CHART_STYLE,
@@ -56,6 +58,22 @@ export const RECT = {
     type: 'rect',
     componentStyle: RECT_STYLE,
     componentData: RECT_DATA,
+  },
+};
+
+export const VIDEO = {
+  name: '',
+  x: 0,
+  y: 0,
+  width: 0,
+  height: 0,
+  bgcolor: '',
+  active: false,
+  id: Math.random(),
+  data: {
+    type: 'video',
+    componentStyle: VIDEO_STYLE,
+    componentData: VIDEO_DATA,
   },
 };
 
