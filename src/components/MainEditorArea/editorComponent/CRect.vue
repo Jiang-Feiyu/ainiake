@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-
+// 按钮矩形组件
 export default {
   props: {
     data: {

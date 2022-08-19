@@ -67,6 +67,21 @@ export const RECT_STYLE = [
   },
 ];
 
+export const VIDEO_STYLE = [{
+  style_label: '视频URL',
+  style_id: 'videoUrl',
+  component: 'el-input',
+  componentAttr: {
+    size: 'mini',
+  },
+},
+  {
+    style_label: '圆角边框',
+    style_id: 'fourBorderRadius',
+    component: 'c-border-radius-group',
+  },
+];
+
 export const IMAGE_STYLE = [{
   style_label: '图片URL',
   style_id: 'imgUrl',

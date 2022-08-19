@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-
+// 文本框样式和设置
 export default {
   props: {
     data: {
@@ -18,19 +18,19 @@ export default {
   },
   components: {
   },
-  computed: {
+  computed: { // 组件右侧设置
     boxStyle() {
       const {
         // color,
-        fontSize,
-        textAlign,
-        fontNormal,
-        fourBorderRadius,
+        fontSize, // 字体大小
+        textAlign, // 文本位置
+        fontNormal, // 字体形状
+        fourBorderRadius, // 圆角边框
       } = this.options;
       const {
         bold, italic, underLine,
       } = fontNormal;
-      const { bgcolor } = this.data;
+      const { bgcolor } = this.data; // 背景颜色
       const {
         left,
         right,

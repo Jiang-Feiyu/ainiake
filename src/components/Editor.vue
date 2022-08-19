@@ -1,43 +1,59 @@
+<!-- 前进后退按键 -->
 <template>
-  <div class="editor">
-    <div class="editor-header">
-      <div :class="`header-undo`" @click="handleUndo">
-        <icon-font
-          size="18"
-          title="撤回操作"
-          code="&#xe617;"
-          :class="`${!canUndo ? 'disable-btn' : ''}`"
-        />
+ <div class="editor">
+      <div class="editor-header">
+        <div
+          :class="`header-undo`"
+          @click="handleUndo"
+        >
+          <icon-font
+            size="18"
+            title="后退操作"
+            code="&#xe617;"
+            :class="`${!canUndo ? 'disable-btn' : ''}`"
+            />
+        </div>
+        <div
+          :class="`header-redo`"
+          @click="handleRedo"
+        >
+          <icon-font
+            size="18"
+            title="前进操作"
+            code="&#xe619;"
+            :class="`header-redo ${!canRedo ? 'disable-btn' : ''}`"
+            />
+        </div>
       </div>
-      <div :class="`header-redo`" @click="handleRedo">
-        <icon-font
-          size="18"
-          title="前进操作"
-          code="&#xe619;"
-          :class="`${!canRedo ? 'disable-btn' : ''}`"
-        />
+      <div class="editor-container">
+        <DragArea
+          :scale-num="scaleOption"
+        >
+        </DragArea>
+        <div class="scale-tip">
+          <span @click="handleAddorSubScale('sub')">
+            <icon-font
+              code="&#xe607;"
+              color="#D8D9E2"
+            ></icon-font>
+          </span>
+          <el-slider
+            v-model="scaleOption"
+            :step="0.1"
+            :min="0.2"
+            :max="1.5"
+            :format-tooltip="scaleTipStyle"
+            class="scale-bar"
+          ></el-slider>
+          <span @click="handleAddorSubScale('add')">
+            <icon-font
+              code="&#xe608;"
+              color="#D8D9E2"
+            ></icon-font>
+          </span>
+        </div>
       </div>
     </div>
-    <div class="editor-container">
-      <DragArea :scale-num="scaleOption"></DragArea>
-      <div class="scale-tip">
-        <span @click="handleAddorSubScale('sub')">
-          <icon-font code="&#xe607;" color="#D8D9E2"></icon-font>
-        </span>
-        <el-slider
-          v-model="scaleOption"
-          :step="0.1"
-          :min="0.2"
-          :max="1.5"
-          :format-tooltip="scaleTipStyle"
-          class="scale-bar"
-        ></el-slider>
-        <span @click="handleAddorSubScale('add')">
-          <icon-font code="&#xe608;" color="#D8D9E2"></icon-font>
-        </span>
-      </div>
-    </div>
-  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex';

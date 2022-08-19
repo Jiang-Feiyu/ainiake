@@ -3,6 +3,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import ECharts from 'vue-echarts';
 import { use } from 'echarts/core';
+ import VideoPlayer from 'vue-video-player';
 import _ from 'lodash';
 import {
   BarChart,
@@ -28,6 +29,9 @@ import store from './store';
 import 'element-ui/lib/theme-chalk/index.css';
 import './style/common.less';
 
+ import 'video.js/dist/video-js.css';
+ import 'vue-video-player/src/custom-theme.css';
+
 use([
   CanvasRenderer,
   BarChart,
@@ -48,7 +52,7 @@ Vue.prototype._ = _;
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
-
+Vue.use(VideoPlayer);
 new Vue({
   router,
   store,
