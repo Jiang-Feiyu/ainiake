@@ -1,58 +1,43 @@
 <template>
-    <div class="editor">
-      <div class="editor-header">
-        <div
-          :class="`header-undo`"
-          @click="handleUndo"
-        >
-          <icon-font
-            size="18"
-            title="撤回操作"
-            code="&#xe617;"
-            :class="`${!canUndo ? 'disable-btn' : ''}`"
-            />
-        </div>
-        <div
-          :class="`header-redo`"
-          @click="handleRedo"
-        >
-          <icon-font
-            size="18"
-            title="前进操作"
-            code="&#xe619;"
-            :class="`header-redo ${!canRedo ? 'disable-btn' : ''}`"
-            />
-        </div>
+  <div class="editor">
+    <div class="editor-header">
+      <div :class="`header-undo`" @click="handleUndo">
+        <icon-font
+          size="18"
+          title="撤回操作"
+          code="&#xe617;"
+          :class="`${!canUndo ? 'disable-btn' : ''}`"
+        />
       </div>
-      <div class="editor-container">
-        <DragArea
-          :scale-num="scaleOption"
-        >
-        </DragArea>
-        <div class="scale-tip">
-          <span @click="handleAddorSubScale('sub')">
-            <icon-font
-              code="&#xe607;"
-              color="#D8D9E2"
-            ></icon-font>
-          </span>
-          <el-slider
-            v-model="scaleOption"
-            :step="0.1"
-            :min="0.2"
-            :max="1.5"
-            :format-tooltip="scaleTipStyle"
-            class="scale-bar"
-          ></el-slider>
-          <span @click="handleAddorSubScale('add')">
-            <icon-font
-              code="&#xe608;"
-              color="#D8D9E2"
-            ></icon-font>
-          </span>
-        </div>
+      <div :class="`header-redo`" @click="handleRedo">
+        <icon-font
+          size="18"
+          title="前进操作"
+          code="&#xe619;"
+          :class="`${!canRedo ? 'disable-btn' : ''}`"
+        />
       </div>
     </div>
+    <div class="editor-container">
+      <DragArea :scale-num="scaleOption"></DragArea>
+      <div class="scale-tip">
+        <span @click="handleAddorSubScale('sub')">
+          <icon-font code="&#xe607;" color="#D8D9E2"></icon-font>
+        </span>
+        <el-slider
+          v-model="scaleOption"
+          :step="0.1"
+          :min="0.2"
+          :max="1.5"
+          :format-tooltip="scaleTipStyle"
+          class="scale-bar"
+        ></el-slider>
+        <span @click="handleAddorSubScale('add')">
+          <icon-font code="&#xe608;" color="#D8D9E2"></icon-font>
+        </span>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
@@ -78,6 +63,18 @@ export default {
     },
   },
   methods: {
+    handleScoll(e) {
+      if (e.ctrlKey) {
+        // console.log(e.ctrlKey);
+        // console.log(e.shiftKey);
+        e.preventDefault();
+        if (e.deltaY > 0) {
+          this.handleAddorSubScale('sub');
+        } else {
+          this.handleAddorSubScale('add');
+        }
+      }
+    },
     handleAddorSubScale(type) {
       console.log(type);
       if (type === 'sub') {
@@ -107,6 +104,7 @@ export default {
     },
   },
   mounted() {
+    window.addEventListener('mousewheel', this.handleScoll, { passive: false });
   },
 };
 </script>
@@ -117,15 +115,20 @@ export default {
   .editor-header {
     padding: 20px;
     background: #fff;
-    border-left: .02666667rem solid #ebedf0;
+    border-left: 0.02666667rem solid #ebedf0;
     box-shadow: 0px 2px 6px rgba(221, 221, 221, 0.445);
     z-index: 99;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    * {
+      user-select: none;
+    }
     .header-undo {
       width: 20px;
       height: 20px;
       border-radius: 6px;
-      padding: 5px;
+      padding: 7px;
       &:hover {
         background: #e9f1ff;
       }
@@ -134,7 +137,7 @@ export default {
       width: 20px;
       height: 20px;
       border-radius: 6px;
-      padding: 5px;
+      padding: 7px;
       &:hover {
         background: #e9f1ff;
       }
@@ -148,7 +151,7 @@ export default {
     width: 100%;
     height: calc(100% - 70px);
     background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%),
-    linear-gradient(360deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%);
+      linear-gradient(360deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%);
     background-size: 20px 20px;
     overflow: scroll;
     position: relative;
@@ -173,11 +176,11 @@ export default {
         .el-slider__button {
           width: 10px;
           height: 10px;
-          border: solid 1px #D8D9E2;
+          border: solid 1px #d8d9e2;
         }
       }
       .el-slider__bar {
-        background-color: #D8D9E2;
+        background-color: #d8d9e2;
         height: 4px;
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;

@@ -1,5 +1,5 @@
 <template>
-    <div :style="dragAreaOutStyle">
+    <div class="dragAreaOut" :style="dragAreaOutStyle">
       <div
         ref="dragArea"
         class="dragArea"
@@ -101,6 +101,10 @@ export default {
       };
     },
     dragAreaOutStyle() {
+      // return {
+      //   width: `${this.scaleNum * 1920}px`,
+      //   height: `${this.scaleNum} * 1080px`,
+      // };
       const left = this.scaleNum < 0.5 ? `${300 * (1 - this.scaleNum)}` : 100;
       const top = this.scaleNum < 0.5 ? `${340 * (1 - this.scaleNum)}` : 100;
       return `
@@ -293,7 +297,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.dragAreaOut{
+  // display: flex;
+}
 .dragArea {
+  // margin: auto 0;
+  border: 3px dashed black;
   width: 1920px;
   height: 1080px;
   background: rgba(255, 255, 255, 0.747);
