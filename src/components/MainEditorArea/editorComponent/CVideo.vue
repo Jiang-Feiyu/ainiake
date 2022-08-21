@@ -19,28 +19,6 @@
    export default {
     data() {
       return {
-        // playerOptions: {
-        //   playbackRates: [0.5, 0.75, 1.0, 1.5, 2.0],
-        //   autoplay: false,
-        //   mtued: false,
-        //   loop: false,
-        //   preload: 'auto',
-        //   language: 'zh-CN',
-        //   aspectRatio: '16:9',
-        //   fluid: false,
-        //   sources: [{
-        //     type: 'video/mp4',
-        //     src: `${this.options.videoUrl}` ? `${this.options.videoUrl}` : 'https://kvideo01.youju.sohu.com/f5ac14c3-4bc3-406f-87af-efacf30a4af32_0_0.mp4',
-        //   }],
-        //   poster: 'https://pic1.zhimg.com/v2-df081aadcb6c5b35b7ae28253875d5a8_b.png',
-        //   notSupportedMessage: '无法播放！',
-        //   controlBar: {
-        //     timeDivider: true,
-        //     durationDisplay: true,
-        //     remainingTimeDisplay: false,
-        //     fullscreenToggle: false,
-        //   },
-        // },
       };
     },
      props: {

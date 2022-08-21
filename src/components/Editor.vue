@@ -15,7 +15,7 @@
           size="18"
           title="前进操作"
           code="&#xe619;"
-          :class="`header-redo ${!canRedo ? 'disable-btn' : ''}`"
+          :class="`${!canRedo ? 'disable-btn' : ''}`"
         />
       </div>
       <el-button

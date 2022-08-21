@@ -123,14 +123,11 @@ export default {
     },
     async handleGetData() {
       // const res = await this.$axios.get(this.options.tableDataUrl);
-      this.options.tableData = [
-        {
-          a: '你好',
-        },
-        {
-          a: '这就是一个测试',
-        },
-      ];
+      this.options.tableData = [{
+        a: '你好',
+      }, {
+        a: '这就是一个测试',
+      }];
     },
     onJsonChange(v) {
       this.options.chartOption.chartData = v;

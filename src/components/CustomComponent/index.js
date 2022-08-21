@@ -5,6 +5,7 @@ import CGetDataComponent from './CGetDataComponent.vue';
 import CVueColor from './CVueColor.vue';
 import CFontSelect from './CFontSelect.vue';
 import CBorderRadiusGroup from './CBorderRadiusGroup.vue';
+import CCodeEditor from './CCodeEditor.vue';
 
 export default {
   cRadioGroup: CRadioGroup,
@@ -14,4 +15,5 @@ export default {
   cColorPicker: CVueColor,
   cFontSelect: CFontSelect,
   cBorderRadiusGroup: CBorderRadiusGroup,
+  cCodeEditor:CCodeEditor
 };

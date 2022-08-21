@@ -1,13 +1,13 @@
 <template>
     <div
-      class="text-box"
+      class="url-box"
       :style="boxStyle"
-      @click="clickEvent"
     >
+      <div>{{ options.text }}</div>
     </div>
 </template>
 <script>
-// 按钮矩形组件
+// 文本框样式和设置
 export default {
   props: {
     data: {
@@ -18,19 +18,32 @@ export default {
   },
   components: {
   },
-  computed: {
+  computed: { // 组件右侧设置
     boxStyle() {
       const {
-        fourBorderRadius,
+        // color,
+        fontSize, // 字体大小
+        textAlign, // 文本位置
+        fontNormal, // 字体形状
+        fourBorderRadius, // 圆角边框
       } = this.options;
+      const {
+        bold, italic, underLine,
+      } = fontNormal;
+      const { bgcolor } = this.data; // 背景颜色
       const {
         left,
         right,
         top,
         bottom,
       } = fourBorderRadius;
-      const { bgcolor } = this.data;
       return {
+        // color,
+        fontSize: `${fontSize}px`,
+        fontWeight: bold ? 'bold' : 'normal',
+        fontStyle: italic ? 'italic' : 'normal',
+        textDecoration: underLine ? 'underline' : 'none',
+        textAlign,
         backgroundColor: bgcolor,
         borderRadius: `${top}px ${right}px ${bottom}px ${left}px`,
       };
@@ -46,14 +59,11 @@ export default {
     };
   },
   methods: {
-    clickEvent(){
-      eval(this.options.rectData)
-    }
   },
 };
 </script>
 <style lang="less" scoped>
-.text-box {
+.url-box {
   caret-color: transparent;
   overflow: hidden;
   height: 100%;
