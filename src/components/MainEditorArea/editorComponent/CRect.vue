@@ -2,11 +2,12 @@
     <div
       class="text-box"
       :style="boxStyle"
+      @click="clickEvent"
     >
     </div>
 </template>
 <script>
-
+// 按钮矩形组件
 export default {
   props: {
     data: {
@@ -45,6 +46,9 @@ export default {
     };
   },
   methods: {
+    clickEvent(){
+      eval(this.options.rectData)
+    }
   },
 };
 </script>

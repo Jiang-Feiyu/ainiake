@@ -1,4 +1,5 @@
 <template>
+<!-- 右侧选项 -->
     <div
       v-if="editorLayout.length && selectCompont && selectCompont.id" :key="selectCompont.id"
       class="option-editor"

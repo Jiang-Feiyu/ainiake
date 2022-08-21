@@ -1,6 +1,6 @@
 <template>
-    <div class="editor">
-      <div class="editor-header">
+    <div class="editor" ref="imageTofile">
+      <div class="editor-header" >
         <div
           :class="`header-undo`"
           @click="handleUndo"
@@ -23,6 +23,8 @@
             :class="`header-redo ${!canRedo ? 'disable-btn' : ''}`"
             />
         </div>
+        <button  size="mini" title="生成图片" @click="toImage()" icon="el-icon-download">
+        截图发布</button>
       </div>
       <div class="editor-container">
         <DragArea
@@ -55,6 +57,7 @@
     </div>
 </template>
 <script>
+import html2canvas from 'html2canvas';
 import { mapGetters } from 'vuex';
 import DragArea from './MainEditorArea/dragArea.vue';
 
@@ -104,6 +107,48 @@ export default {
       this.$store.commit({
         type: 'redo',
       });
+    },
+    // 页面元素转图片
+    toImage() {
+      console.log('调用');
+      // 手动创建一个 canvas 标签
+      const canvas = document.createElement('canvas');
+      // 获取父标签，意思是这个标签内的 DOM 元素生成图片
+      // imageTofile是给截图范围内的父级元素自定义的ref名称
+      const canvasBox = this.$refs.imageTofile;
+      console.log(canvasBox);
+      // 获取父级的宽高
+      const width = parseInt(window.getComputedStyle(canvasBox).width, 10);
+      const height = parseInt(window.getComputedStyle(canvasBox).height, 10);
+      console.log(width, height);
+      // 宽高 * 2 并放大 2 倍 是为了防止图片模糊
+      canvas.width = width * 2;
+      canvas.height = height * 2;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      console.log('sdsd');
+      const context = canvas.getContext('2d');
+      console.log(context);
+      context.scale(2, 2);
+      const options = {
+        backgroundColor: null,
+        canvas,
+        useCORS: true,
+      };
+      html2canvas(canvasBox, options).then((canvascap) => {
+        // toDataURL 图片格式转成 base64
+        const dataURL = canvascap.toDataURL('image/png');
+        console.log(dataURL);
+        this.downloadImage(dataURL);
+      });
+    },
+    // 下载图片
+    downloadImage(url) {
+      // 如果是在网页中可以直接创建一个a标签直接下载
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '发布效果截图';
+      a.click();
     },
   },
   mounted() {

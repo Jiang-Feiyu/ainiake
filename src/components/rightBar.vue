@@ -1,4 +1,5 @@
 <template>
+<!-- 右键功能 -->
   <div
     v-if="rightContextConfig.showRightContextId"
     class="rightBar"
